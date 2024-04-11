@@ -6,13 +6,7 @@ import { useSelector } from "react-redux";
 import { Navigation } from "swiper/modules";
 import "swiper/css/bundle";
 import {
-  FaBath,
-  FaBed,
-  FaChair,
-  FaCarCrash,
-  FaMapMarkedAlt,
   FaMapMarkerAlt,
-  FaParking,
   FaShare,
 } from "react-icons/fa";
 import Contact from "../components/Contact";
@@ -117,20 +111,16 @@ export default function Listing() {
             </p>
             <ul className="text-green-900 font-semibold text-sm flex flex-wrap items-center gap-4 sm:gap-6">
               <li className="flex items-center gap-1 whitespace-nowrap ">
-                {listing.bedrooms > 1
-                  ? `${listing.bedrooms} seats `
-                  : `${listing.bedrooms} seat `}
+                {listing.seat > 1
+                  ? `${listing.seat} seats `
+                  : `${listing.seat} seat `}
               </li>
-              {/* <li className="flex items-center gap-1 whitespace-nowrap ">
-                {listing.bathrooms > 1
-                  ? `${listing.bathrooms} gear `
-                  : `${listing.bathrooms} gear `}
-              </li> */}
+
               <li className="flex items-center gap-1 whitespace-nowrap ">
-                {listing.parking ? "crashed before" : "No damage takin"}
+                {listing.crashed ? "crashed before" : "No damage takin"}
               </li>
               <li className="flex items-center gap-1 whitespace-nowrap ">
-                {listing.furnished ? "Electric" : "Not ELectric"}
+                {listing.electric ? "Electric" : "Not ELectric"}
               </li>
             </ul>
             {currentUser && listing.userRef !== currentUser._id && !contact && (
